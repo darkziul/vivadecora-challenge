@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.js": "/luizalabs-challenge/static/js/main.69dda5a3.chunk.js",
-    "main.js.map": "/luizalabs-challenge/static/js/main.69dda5a3.chunk.js.map",
-    "runtime-main.js": "/luizalabs-challenge/static/js/runtime-main.05153d7a.js",
-    "runtime-main.js.map": "/luizalabs-challenge/static/js/runtime-main.05153d7a.js.map",
-    "static/js/2.b40cebfd.chunk.js": "/luizalabs-challenge/static/js/2.b40cebfd.chunk.js",
-    "static/js/2.b40cebfd.chunk.js.map": "/luizalabs-challenge/static/js/2.b40cebfd.chunk.js.map",
-    "index.html": "/luizalabs-challenge/index.html",
-    "precache-manifest.9a22f4d53bb9087402adc9525b26187c.js": "/luizalabs-challenge/precache-manifest.9a22f4d53bb9087402adc9525b26187c.js",
-    "service-worker.js": "/luizalabs-challenge/service-worker.js",
-    "static/js/2.b40cebfd.chunk.js.LICENSE": "/luizalabs-challenge/static/js/2.b40cebfd.chunk.js.LICENSE"
+    "main.js": "/vivadecora-challenge/static/js/main.3c8ef295.chunk.js",
+    "main.js.map": "/vivadecora-challenge/static/js/main.3c8ef295.chunk.js.map",
+    "runtime-main.js": "/vivadecora-challenge/static/js/runtime-main.48cfc79c.js",
+    "runtime-main.js.map": "/vivadecora-challenge/static/js/runtime-main.48cfc79c.js.map",
+    "static/js/2.7fca2e50.chunk.js": "/vivadecora-challenge/static/js/2.7fca2e50.chunk.js",
+    "static/js/2.7fca2e50.chunk.js.map": "/vivadecora-challenge/static/js/2.7fca2e50.chunk.js.map",
+    "index.html": "/vivadecora-challenge/index.html",
+    "precache-manifest.4f56f9cf120850b541a67760b4c029b5.js": "/vivadecora-challenge/precache-manifest.4f56f9cf120850b541a67760b4c029b5.js",
+    "service-worker.js": "/vivadecora-challenge/service-worker.js",
+    "static/js/2.7fca2e50.chunk.js.LICENSE": "/vivadecora-challenge/static/js/2.7fca2e50.chunk.js.LICENSE",
+    "static/media/video-camera-vazio.png": "/vivadecora-challenge/static/media/video-camera-vazio.1b8d6e5f.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.05153d7a.js",
-    "static/js/2.b40cebfd.chunk.js",
-    "static/js/main.69dda5a3.chunk.js"
+    "static/js/runtime-main.48cfc79c.js",
+    "static/js/2.7fca2e50.chunk.js",
+    "static/js/main.3c8ef295.chunk.js"
   ]
 }
