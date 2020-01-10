@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/luizalabs-challenge/static/js/main.69dda5a3.chunk.js",
+    "main.js.map": "/luizalabs-challenge/static/js/main.69dda5a3.chunk.js.map",
+    "runtime-main.js": "/luizalabs-challenge/static/js/runtime-main.05153d7a.js",
+    "runtime-main.js.map": "/luizalabs-challenge/static/js/runtime-main.05153d7a.js.map",
+    "static/js/2.b40cebfd.chunk.js": "/luizalabs-challenge/static/js/2.b40cebfd.chunk.js",
+    "static/js/2.b40cebfd.chunk.js.map": "/luizalabs-challenge/static/js/2.b40cebfd.chunk.js.map",
+    "index.html": "/luizalabs-challenge/index.html",
+    "precache-manifest.9a22f4d53bb9087402adc9525b26187c.js": "/luizalabs-challenge/precache-manifest.9a22f4d53bb9087402adc9525b26187c.js",
+    "service-worker.js": "/luizalabs-challenge/service-worker.js",
+    "static/js/2.b40cebfd.chunk.js.LICENSE": "/luizalabs-challenge/static/js/2.b40cebfd.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.05153d7a.js",
+    "static/js/2.b40cebfd.chunk.js",
+    "static/js/main.69dda5a3.chunk.js"
+  ]
+}
