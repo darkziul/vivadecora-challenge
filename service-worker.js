@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/vivadecora-challenge/precache-manifest.4f56f9cf120850b541a67760b4c029b5.js"
+  "/vivadecora-challenge/precache-manifest.74f8ae2593fcf512365ad288991050cf.js"
 );
 
 self.addEventListener('message', (event) => {
