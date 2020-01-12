@@ -21,6 +21,7 @@
    * Breakpoint phone: Alterado para 1024px. Abrange muito mais dispositivos móveis (e tablet, caso alguém use ainda) comparado com 320px; -_container in Mobile: max-width:768px_-
    * Por questão de usabilidade, deixei a cor do texto 'ver sinopse' em branco e strong. Melhor visivilidade.
    * A parte que diz '120 avaliações', fiz um método para deixar o texto singular ou plural.
+   * A imagem/poster do modal, usei a imagem de `picture_poster`
 
 **Sugestões**
 * As imagens em assets, poderiam ser uma sprite ou fontIcon/svg (por questão da qualidade).
