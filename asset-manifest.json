@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/vivadecora-challenge/static/js/main.2fe18035.chunk.js",
-    "main.js.map": "/vivadecora-challenge/static/js/main.2fe18035.chunk.js.map",
+    "main.js": "/vivadecora-challenge/static/js/main.215a6720.chunk.js",
+    "main.js.map": "/vivadecora-challenge/static/js/main.215a6720.chunk.js.map",
     "runtime-main.js": "/vivadecora-challenge/static/js/runtime-main.48cfc79c.js",
     "runtime-main.js.map": "/vivadecora-challenge/static/js/runtime-main.48cfc79c.js.map",
-    "static/js/2.2255e951.chunk.js": "/vivadecora-challenge/static/js/2.2255e951.chunk.js",
-    "static/js/2.2255e951.chunk.js.map": "/vivadecora-challenge/static/js/2.2255e951.chunk.js.map",
+    "static/js/2.024f8ba5.chunk.js": "/vivadecora-challenge/static/js/2.024f8ba5.chunk.js",
+    "static/js/2.024f8ba5.chunk.js.map": "/vivadecora-challenge/static/js/2.024f8ba5.chunk.js.map",
     "index.html": "/vivadecora-challenge/index.html",
-    "precache-manifest.74f8ae2593fcf512365ad288991050cf.js": "/vivadecora-challenge/precache-manifest.74f8ae2593fcf512365ad288991050cf.js",
+    "precache-manifest.01a1ff22337d0c559d17f0f3ece67d78.js": "/vivadecora-challenge/precache-manifest.01a1ff22337d0c559d17f0f3ece67d78.js",
     "service-worker.js": "/vivadecora-challenge/service-worker.js",
-    "static/js/2.2255e951.chunk.js.LICENSE": "/vivadecora-challenge/static/js/2.2255e951.chunk.js.LICENSE",
+    "static/js/2.024f8ba5.chunk.js.LICENSE": "/vivadecora-challenge/static/js/2.024f8ba5.chunk.js.LICENSE",
     "static/media/video-camera-vazio.png": "/vivadecora-challenge/static/media/video-camera-vazio.1b8d6e5f.png"
   },
   "entrypoints": [
     "static/js/runtime-main.48cfc79c.js",
-    "static/js/2.2255e951.chunk.js",
-    "static/js/main.2fe18035.chunk.js"
+    "static/js/2.024f8ba5.chunk.js",
+    "static/js/main.215a6720.chunk.js"
   ]
 }
