@@ -13,7 +13,8 @@ const breakpoints:any = {
 };
 
 export const colors = { //preferencia na paleta https://material-ui.com/pt/customization/color/
-    white: '#fff',
+    white: '#ffffff',
+    black: '#000000',
     red900: '#ff1c1c',
     red600:'#ff5656',
     grey100: '#f5f5f5',

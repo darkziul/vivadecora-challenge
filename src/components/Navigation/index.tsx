@@ -1,49 +1,39 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
-import {connect} from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
-import {Reducers} from '../../store/reducers';
-import {actions} from '../../store/navigation';
+import { Reducers } from '../../store/reducers';
+import { actions } from '../../store/stateDefault';
 
-import {NavigatonState, NavigationActions} from '../../store/navigation';
+import { Collection, Actions } from '../rootStateDefaultTypes';
 
+export type CollectionAndActions = Collection & Actions;
 
-
-export interface Collection{
-    collection: NavigatonState;
-    dispatch?: Dispatch;
-};
-export interface Actions{
-    actions: NavigationActions;
-};
-
-export type CollectionAndActions =  Collection & Actions;
-
-const Navigation:React.FC<CollectionAndActions> = ({
+const Navigation: React.FC<CollectionAndActions> = ({
     collection,
     actions,
     dispatch,
     children,
     ...rest
 }) => {
-    const {data}  = collection;
-    const {offSidebar} = actions;
-    
-    return(
+    const { navigation } = collection;
+    const { offSidebar } = actions;
+
+    return (
         <nav>
-              <ul {...rest}>
+            <ul {...rest}>
                 {
-                    data.map((item,index)=>{
-                        return(
-                            <li key={index}>
+                    navigation.map(item => {
+                        return (
+                            <li key={item.name}>
                                 <NavLink
                                     exact
                                     to={item.url} activeClassName='-active'
-                                    onClick={()=>offSidebar()}
-                                    >{item.title}</NavLink>
+                                    onClick={() => offSidebar()}
+                                >{item.title}</NavLink>
                             </li>
-                        )   
+                        )
                     })
                 }
             </ul>
@@ -51,8 +41,8 @@ const Navigation:React.FC<CollectionAndActions> = ({
     )
 };
 
-const mapStateToProps  = (state:Reducers):Collection => ({
-    collection: state.navigation
+const mapStateToProps = (state: Reducers): Collection => ({
+    collection: state.stateDefault
 });
-const mapDispatchToProps = (dispatch:Dispatch):Actions => ({actions: bindActionCreators({...actions}, dispatch)});
-export default  connect(mapStateToProps,mapDispatchToProps)(Navigation);
+const mapDispatchToProps = (dispatch: Dispatch): Actions => ({ actions: bindActionCreators({ ...actions }, dispatch) });
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

@@ -1,5 +1,7 @@
 import styled, {css,keyframes} from 'styled-components';
 
+import {Styled as StyledRating} from '../Rating/styled';
+
 import * as common from '../../styleds/Common';
 
 type PropsCantainer = {
@@ -40,7 +42,7 @@ const Content = styled.div`
     
 `;
 
-const Description = styled.button`
+const DescriptionButton = styled.button`
     display:block;
     margin-top:20px;
     font-size:14px;
@@ -56,6 +58,7 @@ const Description = styled.button`
         margin-left:5px;
         text-decoration: underline;
         white-space:nowrap;
+        cursor:pointer;
     }
 
     ${common.media.medium`
@@ -85,18 +88,19 @@ const VotesText = styled.span`
 `;
 const VotesImageGroup = styled.div`
     display:flex;
-`;
-const Rating = styled.img`
-    max-width:16px;
-    &+img{
-        margin-left:4px;
+
+    ${StyledRating.Image}{
+        max-width:16px;
+        &+img{
+            margin-left:4px;
+            ${common.media.medium`
+                margin-left:8px;
+            `};
+        }
         ${common.media.medium`
-            margin-left:8px;
+            max-width:22px;
         `};
     }
-    ${common.media.medium`
-        max-width:22px;
-    `};
 `;
 
 const Title = styled.h2`
@@ -128,10 +132,25 @@ const TitleGroup = styled.div`
     `};
 `;
 
+const ButtonClickMask = styled.a`
+    
+    width:100%;
+    height:100%;
+    display:block;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:10;
+    ${common.media.medium`
+        display:none;
+    `};
+`;
+
 const ContainerDefault = styled.div`
     width:100%;
     min-height:350px;
     max-width:294px;
+    position:relative;
     display:flex;
     ${common.media.medium`
         min-height:460px;
@@ -168,12 +187,22 @@ const VersionSmall = css`
     ${Title}{
         font-size:22px;
     }
-    ${Rating}{
-        max-width:16px;
-        &+img{
-            margin-left:4px;
+
+    ${VotesImageGroup}{
+        ${StyledRating.Image}{
+            max-width:14px;
+            &+img{
+                margin-left:2px;
+                ${common.media.medium`
+                    margin-left:4px;
+                `};
+            }
+            ${common.media.medium`
+                max-width:16px;
+            `};
         }
-    }
+    };
+
     ${VotesText}{
         margin-top:0;
         display:none;
@@ -186,7 +215,7 @@ const VersionSmall = css`
         flex-direction: row;
         align-items: center;
     }
-    ${Description}{
+    ${DescriptionButton}{
        display:none;
         ${common.media.medium`
              display:block;
@@ -224,11 +253,12 @@ export const Styled = {
     Title,
     Subtitle,
     TitleGroup,
-    Description,
+    DescriptionButton,
     Content,  
     VotesGroup,
     VotesText,
     VotesImageGroup,
-    Rating,
+    // Rating,
     ContainerFake,
+    ButtonClickMask,
 };

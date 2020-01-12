@@ -1,44 +1,46 @@
-import React, {useState, useMemo} from 'react';
-import {connect} from 'react-redux';
+import React, { useState, useMemo, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
+
+import { CollectionAndActionsBaseHTML, Collection, Actions } from '../rootStateDefaultTypes';
+import { Reducers } from '../../store/reducers';
+import { actions } from '../../store/stateDefault';
 
 import Header from '../../components/Header';
-import {Reducers} from '../../store/reducers';
 
-import {Collection} from '../Navigation';
-
-import {Styled} from './styled';
+import { Styled } from './styled';
 
 
-const PageContainer:React.FC<Collection&React.BaseHTMLAttributes<any>> = ({children, collection, ...rest}) => {
-    const {visibleSidebar} = collection;
-    
-    const durationAnimation:number = 200; //ms
+const PageContainer: React.FC<CollectionAndActionsBaseHTML> = ({
+    children,
+    collection,
+    actions,
+    ...rest
+}) => {
+    const { visibleSidebar } = collection;
+    const [durationAnimation, setDurationAnimation] = useState<number>(300); //ms
     const [visible, setVisible] = useState<boolean>(visibleSidebar);
     const [animationClassName, setAnimationClassName] = useState<string>('-init');
-    const [fnSetTime, setFnSetTime] = useState<any>(undefined);
 
-    useMemo(()=>{
-    
-       setAnimationClassName(visibleSidebar ? '-init': '-out');
-       if(!visibleSidebar) {
-            if(fnSetTime) clearTimeout(fnSetTime);
-            setFnSetTime(setTimeout(()=>setVisible(false), durationAnimation));
-       }
-       else setVisible(true);
+    useMemo(() => {
 
-    },[visibleSidebar]);
+        setAnimationClassName(visibleSidebar ? '-init' : '-out');
+        visibleSidebar ? setVisible(true) : setVisible(false);
 
-    return(
+    }, [visibleSidebar, durationAnimation]);
+
+
+    return (
         <Styled.Main {...rest}>
             {
                 visible &&
                 <Styled.Sidebar className={animationClassName} duration={durationAnimation}>
-                    <Styled.Navigation/>
+                    <Styled.Navigation />
                 </Styled.Sidebar>
             }
 
             <Styled.Container>
-                <Header/>
+                <Header />
                 <Styled.Content>
                     {children}
                 </Styled.Content>
@@ -47,7 +49,6 @@ const PageContainer:React.FC<Collection&React.BaseHTMLAttributes<any>> = ({child
     );
 };
 
-const mapStateToProps  = (state:Reducers):Collection => ({
-    collection: state.navigation
-});
-export default connect(mapStateToProps)(PageContainer);
+const mapStateToProps = (state: Reducers): Collection => ({ collection: state.stateDefault });
+const mapDispatchToProps = (dispatch: Dispatch): Actions => ({ actions: bindActionCreators({ ...actions }, dispatch) });
+export default connect(mapStateToProps, mapDispatchToProps)(PageContainer);

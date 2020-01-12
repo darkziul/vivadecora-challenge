@@ -23,7 +23,7 @@ const Sidebar = styled.aside<PropsSidebar>`
     width:100%;
     max-width:${maxWidthSidebar};
     background-color:${common.colors.grey800};
-    padding:15px;
+    padding:15px 30px;
     display:flex;
     flex-direction: column;
     justify-content:center;

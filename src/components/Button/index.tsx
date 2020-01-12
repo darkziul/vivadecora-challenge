@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {Styled} from './styled';
-
 import ImageLike  from '../../assets/curti.png';
 import ImageDislike  from '../../assets/n-curti.png';
+
+import {Styled} from './styled';
 
 const Button:React.FC<React.BaseHTMLAttributes<any>> = ({children, ...rest}) => <Styled.Button {...rest}>{children}</Styled.Button>;
 

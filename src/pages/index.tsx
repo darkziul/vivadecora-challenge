@@ -1,22 +1,37 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import Home from './Home';
-import Like from './Like';
-import Dislike from './Dislike';
+import { Reducers } from '../store/reducers';
+import { Collection } from '../components/rootStateDefaultTypes';
+import HomePage from './Home';
+import LikePage from './Like';
+import DislikePage from './Dislike';
 
-const Pages = () => {
 
+const Pages: React.FC<Collection> = ({ collection }) => {
+  const { navigation } = collection;
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path='/curtidos'><Like/></Route>
-        <Route exact path='/nao-curtidos'><Dislike/></Route>
-        <Route exact path='/'><Home/></Route>
-        <Route path="*"><Redirect to="/"/></Route>
+        {
+          navigation.map(nav => {
+            let page: React.FC;
+            switch (nav.name) {
+              case 'home': page = HomePage; break;
+              case 'like': page = LikePage; break;
+              case 'dislike': page = DislikePage; break;
+              default: return;
+            }
+            return <Route exact path={nav.url} component={page} key={nav.name} />
+          })
+        }
+        <Route path="*"><Redirect to="/" /></Route>
       </Switch>
     </BrowserRouter>
   );
 }
-
-export default Pages;
+const mapStateToProps = (state: Reducers): Collection => ({
+  collection: state.stateDefault
+});
+export default connect(mapStateToProps)(Pages);

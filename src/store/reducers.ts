@@ -1,15 +1,15 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
-import navigation, {NavigatonState} from './navigation';
-import movies, {MoviesState} from './movies';
+import stateDefault, { StateDefault } from './stateDefault';
+import movies, { MoviesState } from './movies';
 
 //@types
 export type Reducers = {
-    navigation: NavigatonState;
+    stateDefault: StateDefault;
     movies: MoviesState;
 };
 
 export default combineReducers<Reducers>({
-    navigation,
+    stateDefault,
     movies,
 });

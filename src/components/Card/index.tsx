@@ -1,10 +1,10 @@
 import React, {useState, useMemo} from 'react';
 
 import Rating from '../Rating';
+import {wordEllipsis, reachedMaxWords} from '../../utils/ellipsis';
 
 import { Styled } from './styled';
-
-import {wordEllipsis, reachedMaxWords} from '../../utils/ellipsis';
+import styled from 'styled-components';
 
 type PropsCard = {
     title:string;
@@ -39,6 +39,7 @@ const Card:React.FC<PropsCard&React.BaseHTMLAttributes<any>> = ({
 
     return(
         <Styled.Container backgroundImage={backgroundImage} {...rest}>
+            <Styled.ButtonClickMask onClick={()=>clicked()}/>
             <Styled.Content>
                 <Styled.TitleGroup>
                     <Styled.Title>
@@ -56,14 +57,14 @@ const Card:React.FC<PropsCard&React.BaseHTMLAttributes<any>> = ({
                 
                 {
                     description &&
-                    <Styled.Description>
+                    <Styled.DescriptionButton onClick={()=>clicked()}>
                         {wordEllipsis(description, maxWords)}
                         {
                             reachedMaxWords(description, maxWords) 
                             &&
                             <strong>Ver sinopse.</strong>
                         }
-                    </Styled.Description>
+                    </Styled.DescriptionButton>
                 }
             </Styled.Content>
         </Styled.Container>

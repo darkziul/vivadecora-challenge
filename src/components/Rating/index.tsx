@@ -1,22 +1,24 @@
 import React from 'react';
 
-import {Styled} from './styled';
-
 import imageCheck from '../../assets/favorite.png';
 import imageNoCheck from '../../assets/favorite_.png';
+
+import {Styled} from './styled';
 
 type PropsRating = {
     limitRating?:number;
     rating:number;
+    onlyCheck?:boolean;
 };
 type ListRating = {
     image:string;
     alt:string;
 };
-const Rating = ({rating,limitRating}:PropsRating) => {
+const Rating = ({rating,limitRating, onlyCheck}:PropsRating) => {
 
     const limit = limitRating || 5;
-    const listRating = (rating:number, limit:number): ListRating[] =>{
+
+    const listRating = (rating:number, limit:number, onlyCheck?:boolean): ListRating[] =>{
         let list:ListRating[] = [];
         for(let i=0; limit>i;i++){
             if(rating) {
@@ -25,7 +27,7 @@ const Rating = ({rating,limitRating}:PropsRating) => {
                     alt: '*'
                 });
                 rating--;    
-            }else list.push({
+            }else !onlyCheck && list.push({
                 image: imageNoCheck,
                 alt: ''
             });
@@ -37,7 +39,7 @@ const Rating = ({rating,limitRating}:PropsRating) => {
     return(
         <>
             {
-                listRating(rating,limit).map((item,i) => <Styled.Image src={item.image} alt={item.alt} key={i}/>)
+                listRating(rating,limit, onlyCheck).map((item,i) => <Styled.Image src={item.image} alt={item.alt} key={i}/>)
             }
         </>
     );

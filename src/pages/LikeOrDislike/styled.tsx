@@ -33,8 +33,7 @@ const CardsGroup = styled.div`
         &:hover {
             position:relative;
             top:-2px;
-            box-shadow: 0 2px 4px rgba(0,0,0,.3);
-            transition: all .2s linear;
+            box-shadow: 0 2px 4px rgba(0,0,0,.2), 0 4px 6px rgba(0,0,0,.1);
         }
         ${common.media.medium`
             margin: 0 15px 30px;

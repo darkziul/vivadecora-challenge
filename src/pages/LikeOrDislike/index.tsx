@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import { DataMovie } from '../../store/movies/rootResponseTypes';
-
-import { Styled } from './styled';
+import imageVideo from '../../assets/video-camera-vazio.png';
 
 import Card from '../../components/Card';
+import Modal from '../../components/Modal';
 
-import imageVideo from '../../assets/video-camera-vazio.png';
+import { Styled } from './styled';
 
 type PropsLikeOrDislikeData = {
     data?: DataMovie[];
@@ -14,6 +14,10 @@ type PropsLikeOrDislikeData = {
 type PropsLikeOrDislike = PropsLikeOrDislikeData & {
     title: string;
 };
+type PropOnClicked = {
+    onClicked(arg?:any):void;
+};
+
 
 const NotHasMovie = () => {
     return (
@@ -25,7 +29,7 @@ const NotHasMovie = () => {
         </Styled.NotFoundContainer>
     );
 };
-const Cards: React.FC<PropsLikeOrDislikeData> = ({ data }) => {
+const Cards: React.FC<PropsLikeOrDislikeData&PropOnClicked> = ({ data, onClicked }) => {
     return (
         <Styled.CardsGroup>
             {
@@ -37,8 +41,8 @@ const Cards: React.FC<PropsLikeOrDislikeData> = ({ data }) => {
                     backgroundImage={item.picturesBackground}
                     votesAverage={item.votesAverage}
                     votes={item.votes}
-                    clicked={() => true}
                     descriptionMaxWords={8}
+                    clicked={()=>onClicked(item)}
                     className='-small'
                 />)
             }
@@ -47,15 +51,21 @@ const Cards: React.FC<PropsLikeOrDislikeData> = ({ data }) => {
 };
 const LikeOrDislike: React.FC<PropsLikeOrDislike> = ({ title, data }) => {
 
+    const [dataModal, setDataModal] = useState<DataMovie|undefined>();
+    
+
     return (
+        <>
+        {dataModal && <Modal closed={()=>setDataModal(undefined)} data={dataModal}/>}
         <Styled.Container>
             <Styled.Content>
                 <Styled.Title>{title}</Styled.Title>
                 {
-                    data?.length ? <Cards data={data} /> : <NotHasMovie />
+                    data?.length ? <Cards data={data} onClicked={(e)=>setDataModal(e)} /> : <NotHasMovie />
                 }
             </Styled.Content>
         </Styled.Container>
+        </>
     );
 };
 
